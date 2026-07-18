@@ -122,15 +122,24 @@
         }
 
         .meta-list li {
+            display: grid;
+            grid-template-columns: 70px minmax(0, 1fr);
+            align-items: start;
+            column-gap: 10px;
             font-size: 0.95rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text-dark);
         }
 
         .meta-list li strong {
             color: var(--primary-color);
-            display: inline-block;
-            width: 80px;
+            white-space: nowrap;
+        }
+
+        .meta-list li span {
+            min-width: 0;
+            word-break: keep-all;
+            overflow-wrap: normal;
         }
 
         /* Features Section */
@@ -278,140 +287,27 @@
             font-size: 0.8rem;
         }
 
-        /* 단계별 교육과정 표 */
-        .roadmap-section {
-            margin: 0 0 50px;
-        }
-
-        .roadmap-heading {
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .roadmap-heading h2 {
-            margin: 0 0 10px;
-            color: var(--primary-color);
-            font-size: 2rem;
-            letter-spacing: -0.04em;
-        }
-
-        .roadmap-heading p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 1rem;
-        }
-
-        .roadmap-table-wrap {
+        .bottom-student-banner {
             width: 100%;
+            height: clamp(280px, 42vw, 520px);
             overflow: hidden;
-            border: 1px solid #d8dee8;
-            border-radius: 18px;
-            background: #fff;
-            box-shadow: 0 18px 45px rgba(30, 41, 59, 0.09);
-            -webkit-overflow-scrolling: touch;
+            background: #dcecf6;
+            line-height: 0;
         }
 
-        .roadmap-table {
+        .bottom-student-banner img {
+            display: block;
             width: 100%;
-            min-width: 1000px;
-            border-collapse: collapse;
-            table-layout: fixed;
-            background: #fff;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 43%;
         }
-
-        .roadmap-table .label-col { width: 7%; }
-        .roadmap-table .subject-col { width: 15.5%; }
-
-        .roadmap-table th,
-        .roadmap-table td {
-            padding: 18px 16px;
-            border-bottom: 1px solid #cbd5e1;
-            vertical-align: middle;
-            font-weight: 400;
-        }
-
-        .roadmap-table tr:last-child th,
-        .roadmap-table tr:last-child td { border-bottom: 0; }
-
-        .roadmap-table .row-label {
-            padding-left: 12px;
-            padding-right: 12px;
-            border-right: 1px solid #e2e8f0;
-            background: #f8fafc;
-            color: #1e3a5f;
-            font-size: 15px;
-            font-weight: 700;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .roadmap-table .target-row { height: 112px; }
-        .roadmap-table .course-row { height: 118px; }
-        .roadmap-table .subject-row { height: 190px; }
-        .roadmap-table .period-row { height: 64px; }
-
-        .roadmap-table .target-row td {
-            background: #fffaf5;
-            color: #e76f18;
-            font-size: 18px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .roadmap-table .course-row td {
-            background: #fff;
-            color: #263b55;
-            font-size: 22px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .roadmap-table .subject-row td {
-            border-right: 1px solid #cbd5e1;
-            background: #f3f6fa;
-            color: #172033;
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 1.38;
-            text-align: center;
-            word-break: keep-all;
-        }
-
-        .roadmap-table .subject-row td:last-child { border-right: 0; }
-
-        .roadmap-table .period-row td {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            background: #fff;
-            color: #526174;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .roadmap-table .last-period {
-            padding-right: 30px;
-            text-align: right !important;
-        }
-
-        .roadmap-table .orange-left { border-left: 2px dashed #f5a44c !important; }
-        .roadmap-table .section-left { border-left: 3px dashed #f28a18 !important; }
 
         @media (max-width: 768px) {
             .features-box { padding: 30px 20px; }
             .info-notice-box { padding: 25px 20px; }
-            .roadmap-heading h2 { font-size: 1.65rem; }
-            .roadmap-heading p { font-size: 0.9rem; }
-            .roadmap-table-wrap {
-                overflow-x: auto;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(30, 41, 59, 0.09);
-            }
-            .roadmap-table { min-width: 920px; }
-            .roadmap-table .target-row { height: 100px; }
-            .roadmap-table .course-row { height: 105px; }
-            .roadmap-table .subject-row { height: 170px; }
+            .bottom-student-banner { height: 270px; }
+            .bottom-student-banner img { object-position: 58% center; }
         }
     </style>
 </head>
@@ -439,12 +335,13 @@
                 <div>
                     <div class="tag">초등 5학년~6학년 (1팀)</div>
                     <h3>초등 알고리즘 및 프로젝트 기초</h3>
-                    <p>스크래치와 엔트리 등 블록 코딩 플랫폼을 활용해 알고리즘의 핵심 개념을 이해합니다. 주도적인 실습과 기획을 거쳐 자신만의 완성도 높은 작품을 산출합니다.</p>
+                    <p>스크래치와 엔트리 등 블록 코딩 플랫폼을 활용해 알고리즘의 핵심 개념을 이해합니다. 주도적인 실습과 기획을 거쳐 자신만의 완성도 높은 작품을 산출하고, 이후 C언어 기초 과정으로 연결합니다.</p>
                 </div>
                 <ul class="meta-list">
-                    <li><strong>정원</strong>팀당 최대 4~5명 소수정예</li>
-                    <li><strong>기간</strong>4개월 총 16회 수업 (주 1회)</li>
-                    <li><strong>특징</strong>컴퓨팅 사고력 향상 매니지먼트</li>
+                    <li><strong>과목</strong><span>블록코딩 (Scratch 또는 Entry)</span></li>
+                    <li><strong>정원</strong><span>팀당 최대 4~5명 소수정예</span></li>
+                    <li><strong>기간</strong><span>과목별 4개월 총 16회 수업(주1회)</span></li>
+                    <li><strong>특징</strong><span>컴퓨팅 사고력 향상 및 텍스트 코딩 준비</span></li>
                 </ul>
             </div>
 
@@ -453,26 +350,28 @@
                 <div>
                     <div class="tag">중학생 전학년 (1~2팀)</div>
                     <h3>중등 텍스트 프로그래밍 & 교과 연계</h3>
-                    <p>중학교 정보 교과의 핵심인 문제분해, 패턴인식, 추상화를 학습하고 파이썬(Python) 또는 C언어 기초 문법을 익힙니다. 학교 정규 교육과정의 성취 기준에 맞추어 연계 학습을 진행합니다.</p>
+                    <p>중학교 정보 교과의 핵심인 문제분해, 패턴인식, 추상화를 학습합니다. C언어 기본부터 파이썬 기본·심화까지 단계적으로 이어가며 학교 정규 교육과정의 성취 기준에 맞춰 학습합니다.</p>
                 </div>
                 <ul class="meta-list">
-                    <li><strong>정원</strong>팀당 최대 4~5명 소수정예</li>
-                    <li><strong>기간</strong>4개월 총 16회 수업 (주 1회)</li>
-                    <li><strong>특징</strong>순서도 설계 및 자료구조 기초 이론</li>
+                    <li><strong>과목</strong><span>C언어 기본 → 파이썬 기본 → 파이썬 심화</span></li>
+                    <li><strong>정원</strong><span>팀당 최대 4~5명 소수정예</span></li>
+                    <li><strong>기간</strong><span>과목별 4개월 총 16회 수업(주1회)</span></li>
+                    <li><strong>특징</strong><span>단계별 이수 후 데이터분석 연구회 지원 가능</span></li>
                 </ul>
             </div>
 
             <!-- 고등부 과정 -->
             <div class="course-card">
                 <div>
-                    <div class="tag">고등학생 및 심화 (1팀)</div>
-                    <h3>주니어 데이터 분석 연구회</h3>
-                    <p>파이썬 핵심 라이브러리(Pandas, Numpy 등)를 활용하여 실제 경제 지표와 공공 데이터를 정제·분석하고, GitHub 포트폴리오를 관리합니다.</p>
+                    <div class="tag">C언어·파이썬 심화 이수 학생 (1팀)</div>
+                    <h3>데이터 분석 연구회</h3>
+                    <p>파이썬 핵심 라이브러리(Pandas, NumPy 등)를 활용하여 실제 경제 지표와 공공 데이터를 정제·분석합니다. 인공지능 활용 개인 프로젝트를 진행하고 GitHub 포트폴리오로 완성합니다.</p>
                 </div>
                 <ul class="meta-list">
-                    <li><strong>정원</strong>선발 및 자원 인원 그룹 스터디</li>
-                    <li><strong>기간</strong>총 16주 (주 1회)</li>
-                    <li><strong>특징</strong>학생 주도형 연구 활동 및 성과발표</li>
+                    <li><strong>과목</strong><span>데이터 분석 → AI 활용 프로젝트·포트폴리오</span></li>
+                    <li><strong>정원</strong><span>지원 및 선발을 통한 그룹 스터디</span></li>
+                    <li><strong>기간</strong><span>고2까지 매주</span></li>
+                    <li><strong>특징</strong><span>학생 주도형 연구 활동 및 성과발표, 프로젝트·포트폴리오 심화</span></li>
                 </ul>
             </div>
 
@@ -493,55 +392,6 @@
                 <p>아이들이 스스로 계획을 세우고 개발일지를 작성하며, 작은 성취감부터 깊이 있는 결과물까지 단계별로 축적해 나갑니다.</p>
             </div>
         </div>
-
-        <!-- 단계별 교육과정표 -->
-        <section class="roadmap-section">
-            <div class="roadmap-heading">
-                <h2>마인드퍼스트 코딩랩 단계별 교육과정</h2>
-                <p>블록코딩 기초부터 데이터분석·인공지능 프로젝트까지 체계적으로 이어집니다.</p>
-            </div>
-
-            <div class="roadmap-table-wrap" role="region" aria-label="마인드퍼스트 코딩랩 단계별 교육과정" tabindex="0">
-                <table class="roadmap-table">
-                    <colgroup>
-                        <col class="label-col">
-                        <col class="subject-col"><col class="subject-col"><col class="subject-col">
-                        <col class="subject-col"><col class="subject-col"><col class="subject-col">
-                    </colgroup>
-                    <tbody>
-                        <tr class="target-row">
-                            <th scope="row" class="row-label">대상</th>
-                            <td class="orange-left">초5~6</td>
-                            <td colspan="3" class="orange-left">초6~중1,2</td>
-                            <td colspan="2" class="section-left">중3, 고 (C, Python 가능한 수강생)</td>
-                        </tr>
-                        <tr class="course-row">
-                            <th scope="row" class="row-label">과정</th>
-                            <td class="orange-left">이수과정</td>
-                            <td colspan="3" class="orange-left">연구과정</td>
-                            <td colspan="2" class="section-left">데이터분석 연구회원</td>
-                        </tr>
-                        <tr class="subject-row">
-                            <th scope="row" class="row-label">과목</th>
-                            <td class="orange-left">블록코딩<br>(Scratch or Entry)</td>
-                            <td class="orange-left">C언어 기본</td>
-                            <td>파이썬 기본</td>
-                            <td>파이썬 심화</td>
-                            <td class="section-left">데이터 분석</td>
-                            <td>인공지능 활용<br>프로젝트/<br>포트폴리오</td>
-                        </tr>
-                        <tr class="period-row">
-                            <th scope="row" class="row-label">기간</th>
-                            <td class="orange-left">4개월(16차시)</td>
-                            <td class="orange-left">4개월(16차시)</td>
-                            <td>4개월(16차시)</td>
-                            <td>4개월(16차시)</td>
-                            <td colspan="2" class="section-left last-period">~ 고2까지</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
 
         <!-- 신청 방식 안내 박스 영역 -->
         <div class="info-notice-box">
@@ -566,6 +416,10 @@
         </div>
 
     </div>
+
+    <section class="bottom-student-banner" aria-label="고등학생 데이터 분석 및 인공지능 프로젝트 활동">
+        <img src="coding_highschool_banner.png" alt="고등학생들이 함께 코딩과 데이터 분석 프로젝트를 진행하는 모습">
+    </section>
 
     <footer>
         <div class="footer-container">
